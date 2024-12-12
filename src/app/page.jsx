@@ -1,26 +1,19 @@
 "use client";
 import { SearchIcon } from "@/components/SearchIcon";
-import { FaSearch } from "react-icons/fa";
-
 import { Day } from "@/components/Day";
-import { Night } from "@/components/Night";
+import { Card } from "@/components/Card";
+import { SearchInput } from "@/components/SearchInput";
 
 export default function Home() {
   return (
     <div className="w-full h-screen flex">
-      <div className="w-[50%] h-[1200px] bg-[#F3F4F6] rounded-tl-[2.5rem] rounded-bl-[2.5rem]">
-        <SearchIcon />
-        <input
-          type="text"
-          placeholder="Search"
-          className="w-[567px] h-[80px] bg-[#ffffff] rounded-[2.5rem] ml-6 mt-6  "
-        />
-        <FaSearch />
-
+      <div className="w-[50%] h-full bg-[#F3F4F6] flex flex-col-reverse justify-between items-center rounded-tl-[2.5rem] rounded-bl-[2.5rem] p-8">
         <Day />
+        <SearchInput />
       </div>
-      <div className="w-[50%] h-[1200px] bg-[#0F141E] rounded-tr-[2.5rem] rounded-br-[2.5rem]">
-        <Night />
+
+      <div className="w-[50%] h-full bg-[#0F141E] rounded-tr-[2.5rem] rounded-br-[2.5rem] p-8 flex flex-col-reverse justify-between ">
+        <Card />
       </div>
     </div>
   );
