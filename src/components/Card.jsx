@@ -1,35 +1,54 @@
 "use client";
-import { useState, useEffect } from "react";
+import { CiLocationOn } from "react-icons/ci";
+import { CiHome } from "react-icons/ci";
+import { CiHeart } from "react-icons/ci";
+import { CiUser } from "react-icons/ci";
 
-export const Card = ({ value, cityName, temperature, condition }) => {
-  const nightCardColor =
-    " bg-[#111827BF] bg-gradient-to-b from-[#111827] to-[#1F2937] text-white shadow-[#1F2937] ";
-
-  const color = value === "night" ? nightCardColor : "bg-white";
+export const Card = ({
+  value,
+  cityName,
+  temperature,
+  condition,
+  color,
+  icon,
+  date,
+}) => {
+  if (value === "night") {
+    color =
+      " bg-[#111827BF] bg-gradient-to-b from-[#111827] to-[#1F2937] text-white shadow-[#1F2937] mt-[180px] ";
+    icon = "text-white size-6";
+  } else if (value === "day") {
+    color = "bg-white shadow-[#1F2937]  ";
+    icon = "text-black size-6";
+  }
 
   return (
-    <div className={`w-[45%] h-[828px] ${color} rounded-[2.25rem] mx-4 mt-32`}>
+    <div
+      className={`w-[45%] h-[828px] ${color}  rounded-[2.25rem] mx-4 mt-32 ml-[250px]`}
+    >
       <div className="flex justify-around items-center">
         <div>
-          <h3>September 10,2021</h3>
-          <h1 className="text-3xl text-[#111827] mt-2">{cityName}</h1>
+          <h3 className="mt-3">{date}</h3>
+          <h1 className="text-3xl mt-2">{cityName}</h1>
         </div>
 
-        <img className="mt-6" src="../locIcon.png" alt="Location Icon" />
+        <CiLocationOn className={`size-6 `} />
       </div>
 
       <div className="flex justify-center items-center mt-10">
         <img className="w-[16rem] h-[16rem]" src="../Sun.png" alt="Sun Icon" />
       </div>
-      <div className="ml-[1rem]">
-        <div className="text-[10rem] font-bold ">{temperature}</div>
-        <div className="text-2xl text-[#FF8E27]">{condition}</div>
-      </div>
-      <div className="w-[19rem] h-[2rem] flex justify-around mt-[5rem]">
-        <img src="../Home.png" alt="Home Icon" />
-        <img src="../Pin.png" alt="Pin Icon" />
-        <img src="../Heart.png" alt="Heart Icon" />
-        <img src="../User.png" alt="User Icon" />
+      <div className="mt-[4rem]">
+        <div className="ml-[4rem]">
+          <div className="text-[144px] font-bold ">{temperature}</div>
+          <div className="text-2xl text-[#FF8E27]">{condition}</div>
+        </div>
+        <div className="w-[24rem] h-[2rem] flex justify-around pt-[3rem] ml-[40px] gap-6">
+          <CiHome className={`${icon}`} />
+          <CiLocationOn className={`${icon}`} />
+          <CiHeart className={`${icon}`} />
+          <CiUser className={`${icon}`} />
+        </div>
       </div>
     </div>
   );

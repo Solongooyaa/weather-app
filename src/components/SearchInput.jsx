@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export const SearchInput = ({ search, onChangeText, onPressEnter }) => {
   return (
-    <div className="w-96 h-12 flex items-center bg-[#ffffff] rounded-[2.5rem] px-4 mt-6">
+    <div className="w-96 h-12 flex items-center bg-[#ffffff] rounded-[2.5rem]  ">
       <button>
         <SearchIcon />
       </button>
