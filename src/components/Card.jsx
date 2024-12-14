@@ -48,6 +48,7 @@ export const Card = ({
           <CiLocationOn className={`${icon}`} />
           <CiHeart className={`${icon}`} />
           <CiUser className={`${icon}`} />
+          <div></div>
         </div>
       </div>
     </div>
