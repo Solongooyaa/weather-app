@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 
-export const Card = ({ value }) => {
+export const Card = ({ value, cityName, temperature, condition }) => {
   const nightCardColor =
     " bg-[#111827BF] bg-gradient-to-b from-[#111827] to-[#1F2937] text-white shadow-[#1F2937] ";
 
@@ -12,7 +12,7 @@ export const Card = ({ value }) => {
       <div className="flex justify-around items-center">
         <div>
           <h3>September 10,2021</h3>
-          <h1 className="text-3xl text-[#111827] mt-2">Ulaanbaatar</h1>
+          <h1 className="text-3xl text-[#111827] mt-2">{cityName}</h1>
         </div>
 
         <img className="mt-6" src="../locIcon.png" alt="Location Icon" />
@@ -22,8 +22,8 @@ export const Card = ({ value }) => {
         <img className="w-[16rem] h-[16rem]" src="../Sun.png" alt="Sun Icon" />
       </div>
       <div className="ml-[1rem]">
-        <div className="text-[10rem] font-bold ">26°</div>
-        <div className="text-2xl text-[#FF8E27]">Bright</div>
+        <div className="text-[10rem] font-bold ">{temperature}</div>
+        <div className="text-2xl text-[#FF8E27]">{condition}</div>
       </div>
       <div className="w-[19rem] h-[2rem] flex justify-around mt-[5rem]">
         <img src="../Home.png" alt="Home Icon" />
