@@ -12,14 +12,24 @@ export const Card = ({
   color,
   icon,
   date,
+  image
 }) => {
   if (value === "night") {
     color =
       " bg-[#111827BF] bg-gradient-to-b from-[#111827] to-[#1F2937] text-white shadow-[#1F2937] mt-[180px] ";
     icon = "text-white size-6";
+    image = "../Moon.png"
   } else if (value === "day") {
     color = "bg-white shadow-[#1F2937]  ";
     icon = "text-black size-6";
+    image = "../Sun.png"
+  }
+if(value=== "night" && condition==="sunny"){
+  image=== "../Moon.png"
+}
+
+  if(value==="night" && condition==="sunny") {
+    condition==="Clear"
   }
 
   return (
@@ -36,7 +46,7 @@ export const Card = ({
       </div>
 
       <div className="flex justify-center items-center mt-10">
-        <img className="w-[16rem] h-[16rem]" src="../Sun.png" alt="Sun Icon" />
+        <img className="w-[16rem] h-[16rem]" src={image} alt="Sun Icon" />
       </div>
       <div className="mt-[4rem]">
         <div className="ml-[4rem]">

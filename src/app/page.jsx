@@ -63,6 +63,12 @@ export default function Home() {
           cityName={city}
           date={dayWeather.date}
         />
+          <div className="w-[130px] h-[130px] bg-[#F3F4F6] rounded-[50%] absolute -left-[60px] bottom-[450px]"></div>
+      <div className="w-[30px] h-[30px] bg-[#F3F4F6] absolute -left-[15px] bottom-[530px] "></div>
+      <div className="">
+        <img className="w-[100px] h-[100px]  bg-[#F3F4F6] absolute -left-[60px] bottom-[450px]" src="../pinecone1.png" alt="Pinecone logo" />
+        <img className="w-[100px] h-[100px]  bg-[#F3F4F6] absolute -left-[60px] bottom-[450px]" src="../pinecone2.png" alt="Pinecone logo" />
+      </div>
       </div>
     </div>
   );
