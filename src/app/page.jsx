@@ -4,6 +4,7 @@ import { Card } from "@/components/Card";
 import { SearchInput } from "@/components/SearchInput";
 import { useEffect, useState } from "react";
 import { Corner } from "@/components/Corner";
+import { Circles } from "@/components/Circles";
 
 const API_KEY = "77953522cf0e4027b4f73033241312";
 
@@ -11,7 +12,12 @@ export default function Home() {
   const [search, setSearch] = useState("");
   const [data, setData] = useState("");
   const [city, setCity] = useState("Ulaanbaatar");
-  const [dayWeather, setDayWeather] = useState({});
+  const [dayWeather, setDayWeather] = useState({
+    temperature: 0,
+    condition:'',
+    nightTemperature:0,
+    date:''
+  });
 
   const onChangeText = (e) => {
     setSearch(e.target.value);
@@ -30,7 +36,7 @@ export default function Home() {
       .then((data) => {
         setDayWeather({
           temperature: data.forecast.forecastday[0].day.maxtemp_c,
-          condition: data.forecast.forecastday[0].day.condition.text,
+          condition: data.forecast.forecastday[0].day.condition.text.trim(),
           nightTemperature: data.forecast.forecastday[0].day.mintemp_c,
           date: data.forecast.forecastday[0].date,
         });
@@ -40,7 +46,7 @@ export default function Home() {
 
   return (
     <div className="w-full h-screen flex ">
-      <div className="w-[50%] h-full bg-[#F3F4F6]  rounded-tl-[2.5rem] rounded-bl-[2.5rem] p-8">
+      <div className="w-[50%] h-full bg-[#F3F4F6] rounded-tl-[2.5rem] rounded-bl-[2.5rem] p-8">
         <SearchInput
           search={search}
           onChangeText={onChangeText}
@@ -52,6 +58,7 @@ export default function Home() {
           condition={dayWeather.condition}
           cityName={city}
           date={dayWeather.date}
+        
         />
       </div>
 
@@ -64,10 +71,8 @@ export default function Home() {
           date={dayWeather.date}
         />
         <Corner />
-        <div className="w-[400px] h-[400px] absolute border rounded-full -left-[200px] top-[380px] "></div>
-        <div className="w-[600px] h-[600px] absolute border rounded-full -left-[290px] top-[280px] "></div>
-        <div className="w-[800px] h-[800px] absolute border rounded-full -left-[380px] top-[180px] "></div>
-        <div className="w-[1000px] h-[1000px] absolute border rounded-full -left-[470px] top-[80px] "></div>
+        <Circles/>
+       
       </div>
     </div>
   );

@@ -1,9 +1,9 @@
 "use client";
 import { SearchIcon } from "./SearchIcon";
 
-export const SearchInput = ({ search, onChangeText, onPressEnter }) => {
+export const SearchInput = ({ search, onChangeText, onPressEnter, zindex }) => {
   return (
-    <div className="w-98 h-12 flex items-center bg-[#ffffff] rounded-[2.5rem]  ">
+    <div className="w-[400px] h-12 flex items-center bg-[#ffffff]  rounded-[2.5rem] z-10">
       <button>
         <SearchIcon />
       </button>

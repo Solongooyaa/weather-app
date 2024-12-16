@@ -13,51 +13,61 @@ export const Card = ({
   icon,
   date,
   image,
+  zindex,
   text,
+  shadow,
 }) => {
   if (value === "night") {
+    text="text-[#777CCE]"
     color =
-      " bg-[#111827BF] bg-gradient-to-b from-[#111827] to-[#1F2937] text-white shadow-[#1F2937] mt-[180px] ";
+      " bg-[#111827BF] bg-gradient-to-b from-[#111827] to-[#1F2937] text-white shadow-[#1F2937] mt-[180px] absolute ";
     icon = "text-white size-6";
-    image = "../Moon.png";
+    image = "/Moon.png";
+    zindex="z-40"
+    shadow="drop-shadow-[0_5px_25px_rgb(255,255,255,5)] rounded-full"
   } else if (value === "day") {
-    color = "bg-white shadow-[#1F2937]  ";
+    color = "bg-white shadow-[#1F2937] relative ";
     icon = "text-black size-6";
-    image = "../Sun.png";
+    image = "/Sun.png";
+     zindex="z-40"
+     text="text-[#FF8E27]"
+  
   }
-  if (value === "night" && condition === "Sunny") {
-    image === "../Moon.png";
-  } else if (value === "day" && condition === "Cloudy") {
-    image === "../DayClouds.png";
-  } else if (value === "day" && condition === "Rainy") {
-    image === "../DayRain.png";
-  } else if (value === "day" && condition === "Snowy") {
-    image === "../DaySnow.png";
-  } else if (value === "day" && condition === "Stormy") {
-    image === "../DayStorm.png";
-  } else if (value === "day" && condition === "Windy") {
-    image === "../DayWind.png";
-  } else if (value === "night" && condition === "Cloudy") {
-    image === "../Clouds.png";
-  } else if (value === "night" && condition === "Rainy") {
-    image === "../NightRain.png";
-  } else if (value === "night" && condition === "Cloudy") {
-    image === "../Clouds.png";
-  } else if (value === "night" && condition === "Snowy") {
-    image === "../NightSnowy.png";
-  } else if (value === "night" && condition === "Storm") {
-    image === "../NightStorm.png";
-  } else if (value === "night" && condition === "Windy") {
-    image === "../NightWindy.png";
-  }
+  const conditionText = condition.toLowerCase()
 
-  if (value === "night" && condition === "Sunny") {
-    text === "Clear";
-  }
+  if (value === "night"){ 
 
+    if(conditionText.includes("rain")){
+      image ="/nightRain.png" 
+    } else if (conditionText.includes("snow")){
+      image = "/nightSnow.png"
+    } else if (condition.includes("overcast") || conditionText.includes("cloud")){
+      image ="/Clouds.png"
+    } else if (conditionText.includes("storm")){
+      image ="/nightStorm"
+    } else if (conditionText.includes("wind")){
+      image ="/nightWind.png"
+    }  else {
+      image ="/Moon.png"}
+
+  }  else{
+    if(conditionText.includes("rain")){
+      image ="/dayRain.png" 
+    } else if (conditionText.includes("snow")){
+      image ="/daySnow.png"
+    } else if (condition.includes("overcast") || conditionText.includes("cloud")){
+      image ="/dayClouds.png"
+    } else if (conditionText.includes("storm")){
+      image ="/dayStorm"
+    } else if (conditionText.includes("wind")){
+      image = "/dayWind.png"
+    } else {image = "Sun.png"}
+  
+  
+  }
   return (
     <div
-      className={`w-[45%] h-[828px] ${color}  rounded-[2.25rem] mx-4 mt-32 ml-[250px]`}
+      className={`w-[45%] h-[828px] ${color} ${ zindex} font-bold rounded-[2.25rem] mx-4 mt-32 ml-[250px]`}
     >
       <div className="flex justify-around items-center">
         <div>
@@ -69,12 +79,12 @@ export const Card = ({
       </div>
 
       <div className="flex justify-center items-center mt-10">
-        <img className="w-[16rem] h-[16rem]" src={image} alt="Sun Icon" />
+        <img className="w-[16rem] h-[16rem] " src={image} alt="Sun Icon" />
       </div>
       <div className="mt-[4rem]">
         <div className="ml-[4rem]">
-          <div className="text-[144px] font-bold ">{temperature}</div>
-          <div className="text-2xl text-[#FF8E27]">{condition}</div>
+          <div className="text-[144px]  ">{Math.round(temperature)}°</div>
+          <div className={`text-2xl  ${text}`}>{condition}</div>
         </div>
         <div className="w-[24rem] h-[2rem] flex justify-around pt-[3rem] ml-[40px] gap-6">
           <CiHome className={`${icon}`} />
