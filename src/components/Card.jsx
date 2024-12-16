@@ -12,24 +12,47 @@ export const Card = ({
   color,
   icon,
   date,
-  image
+  image,
+  text,
 }) => {
   if (value === "night") {
     color =
       " bg-[#111827BF] bg-gradient-to-b from-[#111827] to-[#1F2937] text-white shadow-[#1F2937] mt-[180px] ";
     icon = "text-white size-6";
-    image = "../Moon.png"
+    image = "../Moon.png";
   } else if (value === "day") {
     color = "bg-white shadow-[#1F2937]  ";
     icon = "text-black size-6";
-    image = "../Sun.png"
+    image = "../Sun.png";
   }
-if(value=== "night" && condition==="sunny"){
-  image=== "../Moon.png"
-}
+  if (value === "night" && condition === "Sunny") {
+    image === "../Moon.png";
+  } else if (value === "day" && condition === "Cloudy") {
+    image === "../DayClouds.png";
+  } else if (value === "day" && condition === "Rainy") {
+    image === "../DayRain.png";
+  } else if (value === "day" && condition === "Snowy") {
+    image === "../DaySnow.png";
+  } else if (value === "day" && condition === "Stormy") {
+    image === "../DayStorm.png";
+  } else if (value === "day" && condition === "Windy") {
+    image === "../DayWind.png";
+  } else if (value === "night" && condition === "Cloudy") {
+    image === "../Clouds.png";
+  } else if (value === "night" && condition === "Rainy") {
+    image === "../NightRain.png";
+  } else if (value === "night" && condition === "Cloudy") {
+    image === "../Clouds.png";
+  } else if (value === "night" && condition === "Snowy") {
+    image === "../NightSnowy.png";
+  } else if (value === "night" && condition === "Storm") {
+    image === "../NightStorm.png";
+  } else if (value === "night" && condition === "Windy") {
+    image === "../NightWindy.png";
+  }
 
-  if(value==="night" && condition==="sunny") {
-    condition==="Clear"
+  if (value === "night" && condition === "Sunny") {
+    text === "Clear";
   }
 
   return (
