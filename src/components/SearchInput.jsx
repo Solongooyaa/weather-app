@@ -2,8 +2,9 @@
 import { SearchIcon } from "./SearchIcon";
 
 export const SearchInput = ({ search, onChangeText, onPressEnter, zindex }) => {
+  
   return (
-    <div className="w-[400px] h-12 flex items-center bg-[#ffffff]  rounded-[2.5rem] z-10">
+    <div className={`w-[500px] h-12 flex justify-center items-center bg-[#ffffff] ${zindex} ml-[15rem] mt-[5rem] rounded-[2.5rem]`}>
       <button>
         <SearchIcon />
       </button>

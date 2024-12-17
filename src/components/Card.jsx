@@ -29,7 +29,7 @@ export const Card = ({
     color = "bg-white shadow-[#1F2937] relative ";
     icon = "text-black size-6";
     image = "/Sun.png";
-    zindex = "z-40";
+    zindex = "z-50";
     text = "text-[#FF8E27]";
     shadow = "drop-shadow-[0_3px_25px_rgb(255,255,5)] rounded-full";
   }
@@ -71,8 +71,9 @@ export const Card = ({
     }
   }
   return (
+    <>
     <div
-      className={`w-[45%] h-[828px] ${color} ${zindex}  rounded-[2.25rem] mx-4 mt-32 ml-[250px]`}
+      className={`w-[45%] h-[828px] ${color} ${zindex}  rounded-[2.25rem] mx-4 mt-32 ml-[250px] absolute`}
     >
       <div className="flex justify-around items-center">
         <div>
@@ -104,5 +105,6 @@ export const Card = ({
         </div>
       </div>
     </div>
+    </>
   );
 };

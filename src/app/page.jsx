@@ -10,7 +10,6 @@ const API_KEY = "77953522cf0e4027b4f73033241312";
 
 export default function Home() {
   const [search, setSearch] = useState("");
-  const [data, setData] = useState("");
   const [city, setCity] = useState("Ulaanbaatar");
   const [dayWeather, setDayWeather] = useState({
     temperature: 0,
@@ -27,7 +26,7 @@ export default function Home() {
       setCity(search);
     }
   };
-  console.log(city);
+  
   useEffect(() => {
     fetch(
       `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city}&days=1&aqi=no&alerts=no`
@@ -42,10 +41,11 @@ export default function Home() {
         });
       });
   }, [city]);
-  console.log(data);
 
   return (
-    <div className="w-full h-screen flex ">
+    <div className="w-full h-screen flex relative justify-center items-center">
+      
+    
       <div className="w-[50%] h-full bg-[#F3F4F6] rounded-tl-[2.5rem] rounded-bl-[2.5rem] p-8">
         <SearchInput
           search={search}
@@ -72,6 +72,7 @@ export default function Home() {
         />
         <Corner />
         <Circles/>
+      
        
       </div>
     </div>
