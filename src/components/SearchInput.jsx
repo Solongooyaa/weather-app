@@ -8,6 +8,7 @@ export const SearchInput = ({ search, onChangeText, onPressEnter, zindex }) => {
       <button>
         <SearchIcon />
       </button>
+      <div></div>
       <input
         onChange={onChangeText}
         onKeyDown={onPressEnter}
