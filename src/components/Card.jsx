@@ -72,39 +72,39 @@ export const Card = ({
   }
   return (
     <>
-    <div
-      className={`w-[45%] h-[828px] ${color} ${zindex}  rounded-[2.25rem] mx-4 mt-32 ml-[250px] absolute`}
-    >
-      <div className="flex justify-around items-center">
-        <div>
-          <h3 className="mt-3">{date}</h3>
-          <h1 className="text-3xl mt-2">{cityName}</h1>
+      <div
+        className={`w-[45%] h-[828px] ${color} ${zindex} rounded-[2.25rem] mx-4 mt-32 ml-[250px] absolute `}
+      >
+        <div className="flex justify-around items-center">
+          <div>
+            <h3 className="mt-3">{date}</h3>
+            <h1 className="text-3xl mt-2">{cityName}</h1>
+          </div>
+
+          <CiLocationOn className={`size-6 `} />
         </div>
 
-        <CiLocationOn className={`size-6 `} />
-      </div>
-
-      <div className="flex justify-center items-center mt-10">
-        <img
-          className={`w-[16rem] h-[16rem] ${shadow} `}
-          src={image}
-          alt="Sun Icon"
-        />
-      </div>
-      <div className="mt-[4rem]">
-        <div className="ml-[4rem]">
-          <div className="text-[144px]  ">{Math.round(temperature)}°</div>
-          <div className={`text-2xl font-bold ${text}`}>{condition}</div>
+        <div className="flex justify-center items-center mt-10">
+          <img
+            className={`w-[16rem] h-[16rem] ${shadow} `}
+            src={image}
+            alt="Sun Icon"
+          />
         </div>
-        <div className="w-[24rem] h-[2rem] flex justify-around pt-[3rem] ml-[40px] gap-6">
-          <CiHome className={`${icon}`} />
-          <CiLocationOn className={`${icon}`} />
-          <CiHeart className={`${icon}`} />
-          <CiUser className={`${icon}`} />
-          <div></div>
+        <div className="mt-[4rem]">
+          <div className="ml-[4rem]">
+            <div className="text-[144px]  ">{Math.round(temperature)}°</div>
+            <div className={`text-2xl font-bold ${text}`}>{condition}</div>
+          </div>
+          <div className="w-[24rem] h-[2rem] flex justify-around pt-[3rem] ml-[40px] gap-6">
+            <CiHome className={`${icon}`} />
+            <CiLocationOn className={`${icon}`} />
+            <CiHeart className={`${icon}`} />
+            <CiUser className={`${icon}`} />
+            <div></div>
+          </div>
         </div>
       </div>
-    </div>
     </>
   );
 };

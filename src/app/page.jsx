@@ -13,9 +13,9 @@ export default function Home() {
   const [city, setCity] = useState("Ulaanbaatar");
   const [dayWeather, setDayWeather] = useState({
     temperature: 0,
-    condition:'',
-    nightTemperature:0,
-    date:''
+    condition: "",
+    nightTemperature: 0,
+    date: "",
   });
 
   const onChangeText = (e) => {
@@ -26,7 +26,7 @@ export default function Home() {
       setCity(search);
     }
   };
-  
+
   useEffect(() => {
     fetch(
       `http://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city}&days=1&aqi=no&alerts=no`
@@ -44,8 +44,8 @@ export default function Home() {
 
   return (
     <div className="w-full h-screen flex relative justify-center items-center">
-      
-    
+      <div></div>
+
       <div className="w-[50%] h-full bg-[#F3F4F6] rounded-tl-[2.5rem] rounded-bl-[2.5rem] p-8">
         <SearchInput
           search={search}
@@ -58,7 +58,6 @@ export default function Home() {
           condition={dayWeather.condition}
           cityName={city}
           date={dayWeather.date}
-        
         />
       </div>
 
@@ -71,9 +70,7 @@ export default function Home() {
           date={dayWeather.date}
         />
         <Corner />
-        <Circles/>
-      
-       
+        <Circles />
       </div>
     </div>
   );
